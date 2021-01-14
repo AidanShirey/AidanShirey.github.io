@@ -3,13 +3,26 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-.card {
+.profilecard {
+  position: relative;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 40%;
 }
 
-.card:hover {
+.profilecard:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.projectcard {
+  position: absolute;
+  right: 0;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+}
+
+.projectcard:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
@@ -34,13 +47,21 @@ div{
 </head>
 <body>
 
-<div class="card">
+<div class="profilecard">
   <img src="/images/dripbrian.jpg" alt="Avatar" style="width:100%">
   <div class="container">
     <h3 style="text-align:center"><b>Aidan Shirey</b></h3> 
     <p style="text-align:center">Software Developer</p> 
   </div>
 </div>
+
+<div class="projectcard">
+  <div class="container">
+    <h3 style="text-align:center"><b>Calfire Research</b></h3> 
+    <p style="text-align:center">My capstone</p> 
+  </div>
+</div>
+
 
 </body>
 </html> 
