@@ -3,6 +3,25 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .profilecard {
   position: relative;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -47,6 +66,20 @@ div{
 </head>
 <body>
 
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    <h2>Column 1</h2>
+    <p>Some text..</p>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <h2>Column 2</h2>
+    <p>Some text..</p>
+  </div>
+</div>
+
+<!--
+
 <div class="projectcard">
   <div class="container">
     <h3 style="text-align:center"><b>Calfire Research</b></h3> 
@@ -60,7 +93,7 @@ div{
     <p style="text-align:center">Online portal that tracks interior design projects.</p> 
   </div>
 </div>
-
+-->
 <div class="profilecard">
   <img src="/images/dripbrian.jpg" alt="Avatar" style="width:100%">
   <div class="container">
