@@ -12,7 +12,7 @@ function changeview(pagename,direction){
     if (pagename == "drumpad" && direction == "forwards"){
         // Fade out top image
         document.getElementById("drumpad").setAttribute("class", "profileimagelayer fade");
-        // Fade in Fly info
+        // Fade in Fly info - Test Commit
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("flyinfo").setAttribute("class", "infolargelayer reappear");
         // Change forwards and backwards buttons
