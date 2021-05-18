@@ -22,18 +22,32 @@
 /* Code for profile card */
 .profilecard {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 	background-color: #666666;
     color: whitesmoke;
     border:none;
     border-radius: 25px;
   	height: 80%;
     width: 80%;
-    object-fit: cover;
-    z-index: 2;
+    object-fit:cover;
+    z-index: 5;
     transform: translateX(65%);
+}
+
+.profileimagewrapper {
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.profileimagelayer {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    border:none;
+    transition: 1s;
+    opacity: 1;
 }
 
 .profilecard:hover{
@@ -48,6 +62,14 @@
     animation: splitright 1s forwards;
 }
 
+.fade{
+    opacity: 0;
+}
+
+.reappear{
+    opacity: 1;
+}
+
 .profilecontainer {
     font-size: 48px;
     width: 100%;
@@ -55,7 +77,7 @@
  	padding: 2px 10px;
 }
 
-.infocard {
+.infocardsmall {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +92,22 @@
     transform: translateX(-60%);
 }
 
-.infocard:hover{
+.infocardlarge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-color: #666666;
+    color: whitesmoke;
+    border:none;
+    border-radius: 25px;
+  	height: 30%;
+    width: 80%;
+    transition: 1s;
+    z-index: 1;
+    transform: translateX(-60%);
+}
+
+.infocardsmall:hover{
     background-color: #808080;
 }
 
@@ -116,6 +153,45 @@
     font-size: 24px;
 }
 
+.infolargeflexcontainer {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 24px;
+}
+
+.arrowforward {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666666;
+    border-radius: 25px;
+    width:5%;
+    height:10%;
+    transition: 1s;
+}
+
+.arrowforward:hover{
+    background-color: #808080;
+}
+
+.arrowback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666666;
+    border-radius: 25px;
+    width:5%;
+    height:10%;
+    transition: 1s;
+}
+
+.arrowback:hover{
+    background-color: #808080;
+}
+
 body{
 	background-color: #404040;
 	font-family: Helvetica, sans-serif;
@@ -153,21 +229,27 @@ a {
 <body>
     <div class="fullscreen">
         <div class="fullscreenflexcontainer">
+            <div id="backward" class="arrowback">
+                <i class="fa fa-arrow-left fa-3x"></i>
+            </div>
             <div class="flexcontainer">
-                <img src="images/profilecard.jpg" class="profilecard splitL">
-                    <p style="font-size: 48px;"></p>
-                </img>
+                <div class="profilecard splitL">
+                    <div class="profileimagewrapper">
+                        <img id="profilecard" style="z-index: 5;" class="profileimagelayer" src="images/profilecard.jpg"></img>
+                        <img id="drumpad" style="z-index: 4;" class="profileimagelayer" src="images/drumpad.png"></img>
+                        <img id="fly" style="z-index: 3;" class="profileimagelayer" src="images/fly.png"></img>
+                    </div>
+                </div>
             </div>
             <div class="infoflexcontainer">
-                <button class="infocard splitR">
-                    <div class="infoiflexcontainer">
-                        <i class="fa fa-file fa-3x"></i>
+                <button class="infocardlarge splitR">
+                    <div class="infolargeflexcontainer">
+                        Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.
                     </div>
-                    <div class="infopflexcontainer"> Download my resume </div>
                 </button>
                 <br/>
                 <br/>
-                <a class="infocard splitR" href="https://github.com/AidanShirey">
+                <a class="infocardsmall splitR" href="https://github.com/AidanShirey">
                     <div class="infoiflexcontainer">
                         <i class="fa fa-github fa-3x"></i>
                     </div>
@@ -175,15 +257,19 @@ a {
                 </a>
                 <br/>
                 <br/>
-                <a class="infocard splitR" href="https://www.linkedin.com/in/aidanshirey/">
+                <a class="infocardsmall splitR" href="https://www.linkedin.com/in/aidanshirey/">
                     <div class="infoiflexcontainer">
                         <i class="fa fa-linkedin fa-2x"></i>
                     </div>
                     <div class="infopflexcontainer"> Connect with me </div>
                 </a>
             </div>
+            <div id="forward" class="arrowforward" onclick="changeview('home','forwards')">
+                <i class="fa fa-arrow-right fa-3x"></i>
+            </div>
         </div>
     </div>
 </body>
 
-</html> 
+</html>
+<script src="view.js"></script>

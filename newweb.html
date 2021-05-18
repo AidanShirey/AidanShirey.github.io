@@ -22,18 +22,32 @@
 /* Code for profile card */
 .profilecard {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 	background-color: #666666;
     color: whitesmoke;
     border:none;
     border-radius: 25px;
   	height: 80%;
     width: 80%;
-    object-fit: cover;
-    z-index: 2;
+    object-fit:cover;
+    z-index: 5;
     transform: translateX(65%);
+}
+
+.profileimagewrapper {
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+.profileimagelayer {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+    border:none;
+    transition: 1s;
+    opacity: 1;
 }
 
 .profilecard:hover{
@@ -46,6 +60,14 @@
 
 .splitR{
     animation: splitright 1s forwards;
+}
+
+.fade{
+    opacity: 0;
+}
+
+.reappear{
+    opacity: 1;
 }
 
 .profilecontainer {
@@ -85,7 +107,7 @@
     transform: translateX(-60%);
 }
 
-.infocard:hover{
+.infocardsmall:hover{
     background-color: #808080;
 }
 
@@ -207,13 +229,17 @@ a {
 <body>
     <div class="fullscreen">
         <div class="fullscreenflexcontainer">
-            <div class="arrowback">
+            <div id="backward" class="arrowback">
                 <i class="fa fa-arrow-left fa-3x"></i>
             </div>
             <div class="flexcontainer">
-                <img src="images/profilecard.jpg" class="profilecard splitL">
-                    <p style="font-size: 48px;"></p>
-                </img>
+                <div class="profilecard splitL">
+                    <div class="profileimagewrapper">
+                        <img id="profilecard" style="z-index: 5;" class="profileimagelayer" src="images/profilecard.jpg"></img>
+                        <img id="drumpad" style="z-index: 4;" class="profileimagelayer" src="images/drumpad.png"></img>
+                        <img id="fly" style="z-index: 3;" class="profileimagelayer" src="images/fly.png"></img>
+                    </div>
+                </div>
             </div>
             <div class="infoflexcontainer">
                 <button class="infocardlarge splitR">
@@ -238,11 +264,12 @@ a {
                     <div class="infopflexcontainer"> Connect with me </div>
                 </a>
             </div>
-            <div class="arrowforward">
+            <div id="forward" class="arrowforward" onclick="changeview('home','forwards')">
                 <i class="fa fa-arrow-right fa-3x"></i>
             </div>
         </div>
     </div>
 </body>
 
-</html> 
+</html>
+<script src="view.js"></script>
