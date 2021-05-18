@@ -50,10 +50,6 @@
     opacity: 1;
 }
 
-.profilecard:hover{
-    background-color: #808080;
-}
-
 .splitL{
     animation: splitleft 1s forwards;
 }
@@ -68,13 +64,6 @@
 
 .reappear{
     opacity: 1;
-}
-
-.profilecontainer {
-    font-size: 48px;
-    width: 100%;
-    height: 100%;
- 	padding: 2px 10px;
 }
 
 .infocardsmall {
@@ -100,6 +89,7 @@
     color: whitesmoke;
     border:none;
     border-radius: 25px;
+    padding: 10px;
   	height: 30%;
     width: 80%;
     transition: 1s;
@@ -160,6 +150,19 @@
     width: 100%;
     height: 100%;
     font-size: 24px;
+}
+
+.infolargewrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.infolargelayer {
+    position: absolute;
+    width:100%;
+    height:100%;
+    transition:1s;
 }
 
 .arrowforward {
@@ -223,6 +226,7 @@ a {
     }
 }
 
+
 </style>
 </head>
 
@@ -242,11 +246,15 @@ a {
                 </div>
             </div>
             <div class="infoflexcontainer">
-                <button class="infocardlarge splitR">
+                <div class="infocardlarge splitR">
                     <div class="infolargeflexcontainer">
-                        Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.
+                        <div class="infolargewrapper">
+                            <div id="homeinfo" class="infolargelayer">Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.</div>
+                            <div id="drumpadinfo" class="infolargelayer fade">A web application that allows users to play a basic drum kit on the keyboard. Features three different drum sets (Acoustic, Electric, and Vinyl), with complete animation sets and styles.</div>
+                            <div id="flyinfo" class="infolargelayer fade">A web application that allows users to unpack zip files and preview file content in-browser.</div>
+                        </div>
                     </div>
-                </button>
+                </div>
                 <br/>
                 <br/>
                 <a class="infocardsmall splitR" href="https://github.com/AidanShirey">
