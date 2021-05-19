@@ -140,7 +140,7 @@
     align-items: center;
     width: 80%;
     height: 100%;
-    font-size: 24px;
+    font-size: 90%;
 }
 
 .infolargeflexcontainer {
@@ -149,20 +149,26 @@
     align-items: center;
     width: 100%;
     height: 100%;
-    font-size: 24px;
+    font-size: 150%;
 }
 
 .infolargewrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    
+    font-size: 130%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.infosmallwrapper{
+    font-size: 100%;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .infolargelayer {
     position:absolute;
-    width:100%;
-    height:100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     transition:1s;
 }
 
@@ -258,13 +264,16 @@ a {
             </div>
             <div class="infoflexcontainer">
                 <div class="infocardlarge splitR">
-                    <div class="infolargeflexcontainer">
                         <div class="infolargewrapper">
-                            <div id="homeinfo" class="infolargelayer">Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.</div>
+                            <div id="homeinfo" class="infolargelayer">
+                                Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.
+                                <br/>
+                                <br/>
+                                Click the arrows to take a look at my portfolio.
+                            </div>
                             <div id="drumpadinfo" class="infolargelayer fade">A web application that allows users to play a basic drum kit on the keyboard. Features three different drum sets (Acoustic, Electric, and Vinyl), with complete animation sets and styles.</div>
                             <div id="flyinfo" class="infolargelayer fade">A web application that allows users to unpack zip files and preview file content in-browser.</div>
                         </div>
-                    </div>
                 </div>
                 <br/>
                 <br/>
@@ -273,7 +282,7 @@ a {
                         <i class="fa fa-github fa-3x"></i>
                     </div>
                     <div class="infopflexcontainer"> 
-                        <div class="infolargewrapper">
+                        <div class="infosmallwrapper">
                             <div id="githubprofile"class="infosmalllayer">
                                 Visit my Github
                             </div>
@@ -290,7 +299,7 @@ a {
                         <i id="linkedinicon" class="fa fa-linkedin fa-2x"></i>
                     </div>
                     <div class="infopflexcontainer"> 
-                        <div class="infolargewrapper">
+                        <div class="infosmallwrapper">
                             <div id="linkedinprofile" class="infosmalllayer">
                                 Connect with me
                             </div>
