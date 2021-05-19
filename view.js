@@ -5,6 +5,14 @@ function changeview(pagename,direction){
         // Fade in Drumpad info
         document.getElementById("homeinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer reappear");
+        // Fade in Drumpad repo
+        document.getElementById("githubprofile").setAttribute("class", "infosmalllayer fade");
+        document.getElementById("githubrepo").setAttribute("class", "infosmalllayer");
+        document.getElementById("link1").setAttribute("href", "https://github.com/AidanShirey/DrumPad");
+        // Fade in Drumpad page
+        document.getElementById("linkedinprofile").setAttribute("class", "infosmalllayer fade");
+        document.getElementById("githubpage").setAttribute("class", "infosmalllayer");
+        document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/DrumPad/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('drumpad','forwards')");
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
@@ -15,6 +23,9 @@ function changeview(pagename,direction){
         // Fade in Fly info - Test Commit
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("flyinfo").setAttribute("class", "infolargelayer reappear");
+        // Change links
+        document.getElementById("link1").setAttribute("href", "https://github.com/AidanShirey/fly");
+        document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/fly/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('fly','forwards')");
         document.getElementById("backward").setAttribute("onclick", "changeview('fly','backwards')");
@@ -26,6 +37,14 @@ function changeview(pagename,direction){
         // Fade in Home info
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("homeinfo").setAttribute("class", "infolargelayer reappear");
+        // Fade in profile
+        document.getElementById("githubprofile").setAttribute("class", "infosmalllayer reappear");
+        document.getElementById("githubrepo").setAttribute("class", "infosmalllayer fade");
+        document.getElementById("link1").setAttribute("href", "https://github.com/AidanShirey");
+        // Fade in linkedin
+        document.getElementById("linkedinprofile").setAttribute("class", "infosmalllayer reappear");
+        document.getElementById("githubpage").setAttribute("class", "infosmalllayer fade");
+        document.getElementById("link2").setAttribute("href", "https://www.linkedin.com/in/aidanshirey/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('home','forwards')");
     }
@@ -35,6 +54,9 @@ function changeview(pagename,direction){
         // Fade in Drumpad info
         document.getElementById("flyinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer reappear");
+        // Change links
+        document.getElementById("link1").setAttribute("href", "https://github.com/AidanShirey/DrumPad");
+        document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/DrumPad/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('drumpad','forwards')");
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
