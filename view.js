@@ -15,11 +15,13 @@ function changeview(pagename,direction){
         document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/DrumPad/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('drumpad','forwards')");
+        document.getElementById("backward").setAttribute("class", "arrowback reappear");
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
     }
     if (pagename == "drumpad" && direction == "forwards"){
         // Fade out top image
         document.getElementById("drumpad").setAttribute("class", "profileimagelayer fade");
+        
         // Fade in Fly info - Test Commit
         document.getElementById("drumpadinfo").setAttribute("class", "infolargelayer fade");
         document.getElementById("flyinfo").setAttribute("class", "infolargelayer reappear");
@@ -28,6 +30,7 @@ function changeview(pagename,direction){
         document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/fly/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('fly','forwards')");
+        document.getElementById("forward").setAttribute("class", "arrowforward fade");
         document.getElementById("backward").setAttribute("onclick", "changeview('fly','backwards')");
     }
     if (pagename == "drumpad" && direction == "backwards"){
@@ -47,6 +50,7 @@ function changeview(pagename,direction){
         document.getElementById("link2").setAttribute("href", "https://www.linkedin.com/in/aidanshirey/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('home','forwards')");
+        document.getElementById("backward").setAttribute("class", "arrowback fade");
     }
     if (pagename == "fly" && direction == "backwards"){
         // Fade in images
@@ -59,6 +63,7 @@ function changeview(pagename,direction){
         document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/DrumPad/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('drumpad','forwards')");
+        document.getElementById("forward").setAttribute("class", "arrowforward reappear");
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
     }
 }
