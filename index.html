@@ -58,6 +58,10 @@
     animation: splitright 1s forwards;
 }
 
+.ifade{
+    animation: initfadein 1s forwards;
+}
+
 .fade{
     opacity: 0;
 }
@@ -79,6 +83,20 @@
     transition: 1s;
     z-index: 1;
     transform: translateX(-60%);
+}
+
+.infosmallwrapper{
+    font-size: 100%;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.infosmalllayer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition:1s;
 }
 
 .infocardlarge {
@@ -158,12 +176,6 @@
     max-height: 100%;
 }
 
-.infosmallwrapper{
-    font-size: 100%;
-    max-width: 100%;
-    max-height: 100%;
-}
-
 .infolargelayer {
     position:absolute;
     top: 50%;
@@ -172,12 +184,18 @@
     transition:1s;
 }
 
-.infosmalllayer {
+.infoiconwrapper{
+    position:relative;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.infoiconlayer{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition:1s;
+    transition: 1s;
 }
 
 .arrowforward {
@@ -243,6 +261,14 @@ a {
     }
 }
 
+@keyframes initfadein{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
 
 </style>
 </head>
@@ -296,7 +322,10 @@ a {
                 <br/>
                 <a id="link2" class="infocardsmall splitR" href="https://www.linkedin.com/in/aidanshirey/">
                     <div class="infoiflexcontainer">
-                        <i id="linkedinicon" class="fa fa-linkedin fa-2x"></i>
+                        <div class="infoiconwrapper">
+                            <div id="linkedinicon" class="infoiconlayer fa fa-linkedin fa-2x"></div>
+                            <div id="websiteicon" class="infoiconlayer fa fa-window-maximize fa-2x fade"></div>
+                        </div>
                     </div>
                     <div class="infopflexcontainer"> 
                         <div class="infosmallwrapper">
@@ -310,7 +339,7 @@ a {
                     </div>
                 </a>
             </div>
-            <div id="forward" class="arrowforward" onclick="changeview('home','forwards')">
+            <div id="forward" class="arrowforward ifade" onclick="changeview('home','forwards')">
                 <i class="fa fa-arrow-right fa-3x"></i>
             </div>
         </div>
