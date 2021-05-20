@@ -17,6 +17,7 @@ function changeview(pagename,direction){
         document.getElementById("link2").setAttribute("href", "https://aidanshirey.github.io/DrumPad/");
         // Change forwards and backwards buttons
         document.getElementById("forward").setAttribute("onclick", "changeview('drumpad','forwards')");
+        document.getElementById("forward").setAttribute("class", "arrowforward reappear");
         document.getElementById("backward").setAttribute("class", "arrowback reappear");
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
     }
