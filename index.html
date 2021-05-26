@@ -345,6 +345,30 @@ a {
         width: 100%;
         height: 100%;
     }
+
+    .arrowback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666666;
+    border-radius: 25px;
+    width:10%;
+    height:5%;
+    transition: 1s;
+    transform: translateY(25%);
+    }
+
+    .arrowforward {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #666666;
+    border-radius: 25px;
+    width:10%;
+    height:5%;
+    transition: 1s;
+    transform: translateY(-25%);
+    }
 }
 
 </style>
@@ -354,7 +378,7 @@ a {
     <div class="fullscreen">
         <div class="fullscreenflexcontainer">
             <div id="backward" class="arrowback fade">
-                <i class="fa fa-arrow-left fa-3x"></i>
+                <i id="backwardicon" class="fa fa-arrow-left fa-3x"></i>
             </div>
             <div class="flexcontainer">
                 <div class="profilecard splitL">
@@ -417,7 +441,7 @@ a {
                 </a>
             </div>
             <div id="forward" class="arrowforward ifade" onclick="changeview('home','forwards')">
-                <i class="fa fa-arrow-right fa-3x"></i>
+                <i id="forwardicon" class="fa fa-arrow-right fa-3x"></i>
             </div>
         </div>
     </div>

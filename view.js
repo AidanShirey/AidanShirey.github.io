@@ -1,3 +1,14 @@
+function mediachange(x){
+    if(x.matches){
+        document.getElementById("forwardicon").setAttribute("class", "fa fa-arrow-down fa-2x");
+        document.getElementById("backwardicon").setAttribute("class", "fa fa-arrow-up fa-2x");
+    }
+    else {
+        document.getElementById("forwardicon").setAttribute("class", "fa fa-arrow-right fa-3x");
+        document.getElementById("backwardicon").setAttribute("class", "fa fa-arrow-left fa-3x");
+    }
+}
+
 function changeview(pagename,direction){
     if (pagename == "home" && direction == "forwards"){
         // Fade out top image
@@ -72,3 +83,7 @@ function changeview(pagename,direction){
         document.getElementById("backward").setAttribute("onclick", "changeview('drumpad','backwards')");
     }
 }
+
+var x = window.matchMedia("(max-width: 700px)");
+mediachange(x);
+x.addListener(mediachange);
