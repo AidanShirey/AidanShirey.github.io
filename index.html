@@ -1,451 +1,495 @@
 <!DOCTYPE html>
 <html>
-<head>
-<!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
-<style>
+  <head>
+    <!-- Add icon library -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, height=device-height, initial-scale=1"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-* {
-  box-sizing: border-box;
-}
+      .fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        overflow: auto;
+      }
 
-.fullscreen{
-    position:fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    overflow: auto;
-}
-
-/* Code for profile card */
-.profilecard {
-    display: flex;
-	background-color: #666666;
-    color: whitesmoke;
-    border:none;
-    border-radius: 25px;
-  	height: 80%;
-    width: 80%;
-    object-fit:cover;
-    z-index: 5;
-    transform: translateX(65%);
-}
-
-.profileimagewrapper {
-    position: relative;
-    width:100%;
-    height:100%;
-}
-
-.profileimagelayer {
-    position:absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 25px;
-    border:none;
-    transition: 1s;
-    opacity: 1;
-}
-
-.splitL{
-    animation: splitleft 1s forwards;
-}
-
-.splitR{
-    animation: splitright 1s forwards;
-}
-
-.ifade{
-    animation: initfadein 1s forwards;
-}
-
-.fade{
-    opacity: 0;
-}
-
-.reappear{
-    opacity: 1;
-}
-
-.infocardsmall {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-	background-color: #666666;
-    color: whitesmoke;
-    border:none;
-    border-radius: 25px;
-  	height: 10%;
-    width: 80%;
-    transition: 1s;
-    z-index: 1;
-    transform: translateX(-60%);
-}
-
-.infosmallwrapper{
-    font-size: 100%;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.infosmalllayer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition:1s;
-}
-
-.infocardlarge {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-	background-color: #666666;
-    color: whitesmoke;
-    border:none;
-    border-radius: 25px;
-    padding: 10px;
-  	height: 30%;
-    width: 80%;
-    transition: 1s;
-    z-index: 1;
-    transform: translateX(-60%);
-}
-
-.infocardsmall:hover{
-    background-color: #808080;
-}
-
-.fullscreenflexcontainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.flexcontainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-}
-
-.infoflexcontainer {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-}
-
-.infoiflexcontainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 20%;
-    height: 100%;
-}
-
-.infopflexcontainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 100%;
-    font-size: 90%;
-}
-
-.infolargeflexcontainer {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    font-size: 150%;
-}
-
-.infolargewrapper {
-    font-size: 100%;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.infolargelayer {
-    position:absolute;
-    max-width: 100%;
-    max-height: 100%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition:1s;
-}
-
-.infoiconwrapper{
-    position:relative;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.infoiconlayer{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: 1s;
-}
-
-.arrowforward {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #666666;
-    border-radius: 25px;
-    width:5%;
-    height:10%;
-    transition: 1s;
-    transform: translateX(-25%);
-}
-
-.arrowforward:hover{
-    background-color: #808080;
-}
-
-.arrowback {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #666666;
-    border-radius: 25px;
-    width:5%;
-    height:10%;
-    transition: 1s;
-    transform: translateX(25%);
-}
-
-.arrowback:hover{
-    background-color: #808080;
-}
-
-body{
-	background-color: #404040;
-	font-family: Helvetica, sans-serif;
-	color:whitesmoke;
-    height: 100%;
-    width: 100%;
-}
-
-div{
-	font-family: Helvetica, sans-serif;
-	color:white;
-}
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: whitesmoke;
-}
-
-@keyframes splitleft {
-    100%{
-        transform: translateX(10%);
-    }
-}
-
-@keyframes splitright {
-    100%{
-        transform: translateX(-10%);
-    }
-}
-
-@keyframes initfadein{
-    0%{
-        opacity: 0;
-    }
-    100%{
-        opacity: 1;
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    .splitL{
-        animation: splitup 1s forwards;
-    }
-
-    .splitR{
-        animation: splitdown 1s forwards;
-    }
-
-    @keyframes splitup{
-        100%{
-            transform: translateY(0%);
-        }
-    }
-
-    @keyframes splitdown{
-        100%{
-            transform: translateY(-0%);
-        }
-    }
-
-    .profilecard {
+      /* Code for profile card */
+      .profilecard {
         display: flex;
-	    background-color: #666666;
+        background-color: #666666;
         color: whitesmoke;
-        border:none;
+        border: none;
         border-radius: 25px;
-  	    height: 90%;
-        width: 90%;
-        object-fit:cover;
+        height: 80%;
+        width: 80%;
+        object-fit: cover;
         z-index: 5;
-        transform: translateY(50%);
-    }
+        transform: translateX(65%);
+      }
 
-    .infocardlarge {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-	    background-color: #666666;
-        color: whitesmoke;
-        border:none;
-        border-radius: 25px;
-        padding: 10px;
-  	    height: 30%;
-        width: 90%;
-        transition: 1s;
-        z-index: 1;
-        transform: translateY(-50%);
-    }
-
-    .infocardsmall {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-	    background-color: #666666;
-        color: whitesmoke;
-        border:none;
-        border-radius: 25px;
-  	    height: 20%;
-        width: 90%;
-        transition: 1s;
-        z-index: 1;
-        transform: translateY(-50%);
-    }
-
-    .fullscreenflexcontainer {
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+      .profileimagewrapper {
+        position: relative;
         width: 100%;
         height: 100%;
-    }
+      }
 
-    .arrowback {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #666666;
-    border-radius: 25px;
-    width:10%;
-    height:5%;
-    transition: 1s;
-    transform: translateY(25%);
-    }
+      .profileimagelayer {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 25px;
+        border: none;
+        transition: 1s;
+        opacity: 1;
+      }
 
-    .arrowforward {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #666666;
-    border-radius: 25px;
-    width:10%;
-    height:5%;
-    transition: 1s;
-    transform: translateY(-25%);
-    }
-}
+      .splitL {
+        animation: splitleft 1s forwards;
+      }
 
-</style>
-</head>
+      .splitR {
+        animation: splitright 1s forwards;
+      }
 
-<body>
+      .ifade {
+        animation: initfadein 1s forwards;
+      }
+
+      .fade {
+        opacity: 0;
+      }
+
+      .reappear {
+        opacity: 1;
+      }
+
+      .infocardsmall {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #666666;
+        color: whitesmoke;
+        border: none;
+        border-radius: 25px;
+        height: 10%;
+        width: 80%;
+        transition: 1s;
+        z-index: 1;
+        transform: translateX(-60%);
+      }
+
+      .infosmallwrapper {
+        font-size: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .infosmalllayer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 1s;
+      }
+
+      .infocardlarge {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background-color: #666666;
+        color: whitesmoke;
+        border: none;
+        border-radius: 25px;
+        padding: 10px;
+        height: 30%;
+        width: 80%;
+        transition: 1s;
+        z-index: 1;
+        transform: translateX(-60%);
+      }
+
+      .infocardsmall:hover {
+        background-color: #808080;
+      }
+
+      .fullscreenflexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .flexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+      }
+
+      .infoflexcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+      }
+
+      .infoiflexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        height: 100%;
+      }
+
+      .infopflexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 100%;
+        font-size: 90%;
+      }
+
+      .infolargeflexcontainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        font-size: 150%;
+      }
+
+      .infolargewrapper {
+        font-size: 100%;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .infolargelayer {
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 1s;
+      }
+
+      .infoiconwrapper {
+        position: relative;
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      .infoiconlayer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 1s;
+      }
+
+      .arrowforward {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #666666;
+        border-radius: 25px;
+        width: 5%;
+        height: 10%;
+        transition: 1s;
+        transform: translateX(-25%);
+      }
+
+      .arrowforward:hover {
+        background-color: #808080;
+      }
+
+      .arrowback {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #666666;
+        border-radius: 25px;
+        width: 5%;
+        height: 10%;
+        transition: 1s;
+        transform: translateX(25%);
+      }
+
+      .arrowback:hover {
+        background-color: #808080;
+      }
+
+      body {
+        background-color: #404040;
+        font-family: Helvetica, sans-serif;
+        color: whitesmoke;
+        height: 100%;
+        width: 100%;
+      }
+
+      div {
+        font-family: Helvetica, sans-serif;
+        color: white;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 22px;
+        color: whitesmoke;
+      }
+
+      @keyframes splitleft {
+        100% {
+          transform: translateX(10%);
+        }
+      }
+
+      @keyframes splitright {
+        100% {
+          transform: translateX(-10%);
+        }
+      }
+
+      @keyframes initfadein {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @media only screen and (max-width: 700px) {
+        .splitL {
+          animation: splitup 1s forwards;
+        }
+
+        .splitR {
+          animation: splitdown 1s forwards;
+        }
+
+        @keyframes splitup {
+          100% {
+            transform: translateY(0%);
+          }
+        }
+
+        @keyframes splitdown {
+          100% {
+            transform: translateY(-0%);
+          }
+        }
+
+        .profilecard {
+          display: flex;
+          background-color: #666666;
+          color: whitesmoke;
+          border: none;
+          border-radius: 25px;
+          height: 90%;
+          width: 90%;
+          object-fit: cover;
+          z-index: 5;
+          transform: translateY(50%);
+        }
+
+        .infocardlarge {
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          background-color: #666666;
+          color: whitesmoke;
+          border: none;
+          border-radius: 25px;
+          padding: 10px;
+          height: 30%;
+          width: 90%;
+          transition: 1s;
+          z-index: 1;
+          transform: translateY(-50%);
+        }
+
+        .infocardsmall {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #666666;
+          color: whitesmoke;
+          border: none;
+          border-radius: 25px;
+          height: 20%;
+          width: 90%;
+          transition: 1s;
+          z-index: 1;
+          transform: translateY(-50%);
+        }
+
+        .fullscreenflexcontainer {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          width: 100%;
+          height: 100%;
+        }
+
+        .arrowback {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #666666;
+          border-radius: 25px;
+          width: 10%;
+          height: 5%;
+          transition: 1s;
+          transform: translateY(25%);
+        }
+
+        .arrowforward {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background-color: #666666;
+          border-radius: 25px;
+          width: 10%;
+          height: 5%;
+          transition: 1s;
+          transform: translateY(-25%);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
     <div class="fullscreen">
-        <div class="fullscreenflexcontainer">
-            <div id="backward" class="arrowback fade">
-                <i id="backwardicon" class="fa fa-arrow-left fa-3x"></i>
-            </div>
-            <div class="flexcontainer">
-                <div class="profilecard splitL">
-                    <div class="profileimagewrapper">
-                        <img id="profilecard" style="z-index: 5;" class="profileimagelayer" src="images/profilecard.jpg"></img>
-                        <img id="drumpad" style="z-index: 4;" class="profileimagelayer" src="images/drumpad.png"></img>
-                        <img id="fly" style="z-index: 3;" class="profileimagelayer" src="images/fly.png"></img>
-                    </div>
-                </div>
-            </div>
-            <div class="infoflexcontainer">
-                <div class="infocardlarge splitR">
-                        <div class="infolargewrapper">
-                            <div id="homeinfo" class="infolargelayer">
-                                Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look around, I'm sure you'll find something you'll like.
-                                <br/>
-                                <br/>
-                                Click the arrow to take a look at my portfolio.
-                            </div>
-                            <div id="drumpadinfo" class="infolargelayer fade">A web application that allows users to play a basic drum kit on the keyboard. Features three different drum sets (Acoustic, Electric, and Vinyl), with complete animation sets and styles.</div>
-                            <div id="flyinfo" class="infolargelayer fade">A web application that allows users to unpack zip files and preview file content in-browser.</div>
-                        </div>
-                </div>
-                <br/>
-                <br/>
-                <a id="link1" class="infocardsmall splitR" href="https://github.com/AidanShirey">
-                    <div class="infoiflexcontainer">
-                        <i class="fa fa-github fa-3x"></i>
-                    </div>
-                    <div class="infopflexcontainer"> 
-                        <div class="infosmallwrapper">
-                            <div id="githubprofile"class="infosmalllayer">
-                                Visit my Github
-                            </div>
-                            <div id="githubrepo" class="infosmalllayer fade">
-                                View Github Repository
-                            </div>
-                        </div>     
-                    </div>
-                </a>
-                <br/>
-                <br/>
-                <a id="link2" class="infocardsmall splitR" href="https://www.linkedin.com/in/aidanshirey/">
-                    <div class="infoiflexcontainer">
-                        <div class="infoiconwrapper">
-                            <div id="linkedinicon" class="infoiconlayer fa fa-linkedin fa-2x"></div>
-                            <div id="websiteicon" class="infoiconlayer fa fa-window-maximize fa-2x fade"></div>
-                        </div>
-                    </div>
-                    <div class="infopflexcontainer"> 
-                        <div class="infosmallwrapper">
-                            <div id="linkedinprofile" class="infosmalllayer">
-                                Connect with me
-                            </div>
-                            <div id="githubpage" class="infosmalllayer fade">
-                                View Web Application
-                            </div>
-                        </div> 
-                    </div>
-                </a>
-            </div>
-            <div id="forward" class="arrowforward ifade" onclick="changeview('home','forwards')">
-                <i id="forwardicon" class="fa fa-arrow-right fa-3x"></i>
-            </div>
+      <div class="fullscreenflexcontainer">
+        <div id="backward" class="arrowback fade">
+          <i id="backwardicon" class="fa fa-arrow-left fa-3x"></i>
         </div>
+        <div class="flexcontainer">
+          <div class="profilecard splitL">
+            <div class="profileimagewrapper">
+              <img
+                id="profilecard"
+                style="z-index: 5"
+                class="profileimagelayer"
+                src="images/profilecard.jpg"
+              />
+              <img
+                id="drumpad"
+                style="z-index: 4"
+                class="profileimagelayer"
+                src="images/drumpad.png"
+              />
+              <img
+                id="fly"
+                style="z-index: 3"
+                class="profileimagelayer"
+                src="images/fly.png"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="infoflexcontainer">
+          <div class="infocardlarge splitR">
+            <div class="infolargewrapper">
+              <div id="homeinfo" class="infolargelayer">
+                Hi, I'm Aidan Shirey. I'm a Software Developer. Take a look
+                around, I'm sure you'll find something you'll like.
+                <br />
+                <br />
+                Click the arrow to take a look at my portfolio.
+              </div>
+              <div id="drumpadinfo" class="infolargelayer fade">
+                A web application that allows users to play a basic drum kit on
+                the keyboard. Features three different drum sets (Acoustic,
+                Electric, and Vinyl), with complete animation sets and styles.
+              </div>
+              <div id="flyinfo" class="infolargelayer fade">
+                A web application that allows users to unpack zip files and
+                preview file content in-browser.
+              </div>
+            </div>
+          </div>
+          <br />
+          <br />
+          <a
+            id="link1"
+            class="infocardsmall splitR"
+            href="https://github.com/AidanShirey"
+          >
+            <div class="infoiflexcontainer">
+              <i class="fa fa-github fa-3x"></i>
+            </div>
+            <div class="infopflexcontainer">
+              <div class="infosmallwrapper">
+                <div id="githubprofile" class="infosmalllayer">
+                  Visit my Github
+                </div>
+                <div id="githubrepo" class="infosmalllayer fade">
+                  View Github Repository
+                </div>
+              </div>
+            </div>
+          </a>
+          <br />
+          <br />
+          <a
+            id="link2"
+            class="infocardsmall splitR"
+            href="https://www.linkedin.com/in/aidanshirey/"
+          >
+            <div class="infoiflexcontainer">
+              <div class="infoiconwrapper">
+                <div
+                  id="linkedinicon"
+                  class="infoiconlayer fa fa-linkedin fa-2x"
+                ></div>
+                <div
+                  id="websiteicon"
+                  class="infoiconlayer fa fa-window-maximize fa-2x fade"
+                ></div>
+              </div>
+            </div>
+            <div class="infopflexcontainer">
+              <div class="infosmallwrapper">
+                <div id="linkedinprofile" class="infosmalllayer">
+                  Connect with me
+                </div>
+                <div id="githubpage" class="infosmalllayer fade">
+                  View Web Application
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          id="forward"
+          class="arrowforward ifade"
+          onclick="changeview('home','forwards')"
+        >
+          <i id="forwardicon" class="fa fa-arrow-right fa-3x"></i>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
 <script src="view.js"></script>
