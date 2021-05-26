@@ -324,7 +324,7 @@
           width: 90%;
           transition: 1s;
           z-index: 1;
-          transform: translateY(-50%);
+          transform: translateY(-150%);
         }
 
         .infocardsmall {
@@ -339,7 +339,7 @@
           width: 90%;
           transition: 1s;
           z-index: 1;
-          transform: translateY(-50%);
+          transform: translateY(-150%);
         }
 
         .fullscreenflexcontainer {
@@ -373,6 +373,14 @@
           height: 5%;
           transition: 1s;
           transform: translateY(-25%);
+        }
+
+        #firstbreak {
+          display: none;
+        }
+
+        #secondbreak {
+          display: none;
         }
       }
     </style>
@@ -429,7 +437,7 @@
               </div>
             </div>
           </div>
-          <br />
+          <br id="firstbreak" />
           <br />
           <a
             id="link1"
@@ -450,7 +458,7 @@
               </div>
             </div>
           </a>
-          <br />
+          <br id="secondbreak" />
           <br />
           <a
             id="link2"
