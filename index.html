@@ -176,15 +176,16 @@
       }
 
       .infolargewrapper {
+        position: relative;
         font-size: 100%;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
       }
 
       .infolargelayer {
         position: absolute;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -193,12 +194,14 @@
 
       .infoiconwrapper {
         position: relative;
-        max-width: 100%;
-        max-height: 100%;
+        width: 20%;
+        height: 100%;
       }
 
       .infoiconlayer {
         position: absolute;
+        max-width: 100%;
+        max-height: 100%;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -444,8 +447,8 @@
             class="infocardsmall splitR"
             href="https://github.com/AidanShirey"
           >
-            <div class="infoiflexcontainer">
-              <i class="fa fa-github fa-3x"></i>
+            <div class="infoiconwrapper">
+              <div class="infoiconlayer fa fa-github fa-3x"></div>
             </div>
             <div class="infopflexcontainer">
               <div class="infosmallwrapper">
@@ -465,18 +468,17 @@
             class="infocardsmall splitR"
             href="https://www.linkedin.com/in/aidanshirey/"
           >
-            <div class="infoiflexcontainer">
-              <div class="infoiconwrapper">
-                <div
-                  id="linkedinicon"
-                  class="infoiconlayer fa fa-linkedin fa-2x"
-                ></div>
-                <div
-                  id="websiteicon"
-                  class="infoiconlayer fa fa-window-maximize fa-2x fade"
-                ></div>
-              </div>
+            <div class="infoiconwrapper">
+              <div
+                id="linkedinicon"
+                class="infoiconlayer fa fa-linkedin fa-2x"
+              ></div>
+              <div
+                id="websiteicon"
+                class="infoiconlayer fa fa-window-maximize fa-2x fade"
+              ></div>
             </div>
+
             <div class="infopflexcontainer">
               <div class="infosmallwrapper">
                 <div id="linkedinprofile" class="infosmalllayer">
