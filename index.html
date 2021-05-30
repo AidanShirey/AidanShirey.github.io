@@ -63,10 +63,6 @@
         animation: splitright 1s forwards;
       }
 
-      .ifade {
-        animation: initfadein 1s forwards;
-      }
-
       .fade {
         opacity: 0;
       }
@@ -86,7 +82,6 @@
         height: 10%;
         width: 80%;
         font-size: 1.5vw;
-        transition: 1s;
         z-index: 1;
         transform: translateX(-60%);
       }
@@ -101,9 +96,7 @@
         position: absolute;
         top: 50%;
         left: 50%;
-
         transform: translate(-50%, -50%);
-        transition: 1s;
       }
 
       .infocardlarge {
@@ -118,7 +111,6 @@
         height: 30%;
         width: 80%;
         font-size: 1.5vw;
-        transition: 1s;
         z-index: 1;
         transform: translateX(-60%);
       }
@@ -186,11 +178,9 @@
         position: absolute;
         width: 100%;
         height: 100%;
-
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        transition: 1s;
       }
 
       .infoiconwrapper {
@@ -206,7 +196,6 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        transition: 1s;
       }
 
       .arrowforward {
@@ -217,7 +206,7 @@
         border-radius: 25px;
         width: 5%;
         height: 10%;
-        transition: 1s;
+        animation: 1s;
         transform: translateX(-25%);
       }
 
@@ -233,11 +222,12 @@
         border-radius: 25px;
         width: 5%;
         height: 10%;
-        transition: 1s;
+        animation: 1s;
         transform: translateX(25%);
       }
 
       .arrowback:hover {
+        transition: 1s;
         background-color: #808080;
       }
 
@@ -272,13 +262,30 @@
         }
       }
 
-      @keyframes initfadein {
+      @keyframes fadein {
         0% {
           opacity: 0;
         }
         100% {
           opacity: 1;
         }
+      }
+
+      .fadeinto {
+        animation: fadein 1s forwards;
+      }
+
+      @keyframes fadeout {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      .fadeoutto {
+        animation: fadeout 1s forwards;
       }
 
       @media only screen and (max-width: 700px) {
@@ -326,7 +333,6 @@
           padding: 10px;
           height: 30%;
           width: 90%;
-          transition: 1s;
           z-index: 1;
           font-size: 3.2vw;
           transform: translateY(-150%);
@@ -342,7 +348,6 @@
           border-radius: 25px;
           height: 20%;
           width: 90%;
-          transition: 1s;
           z-index: 1;
           font-size: 3.4vw;
           transform: translateY(-150%);
@@ -382,7 +387,6 @@
           border-radius: 25px;
           width: 10%;
           height: 5%;
-          transition: 1s;
           transform: translateY(25%);
         }
 
@@ -394,7 +398,6 @@
           border-radius: 25px;
           width: 10%;
           height: 5%;
-          transition: 1s;
           transform: translateY(-25%);
         }
 
@@ -513,7 +516,7 @@
         </div>
         <div
           id="forward"
-          class="arrowforward ifade"
+          class="arrowforward fadeinto"
           onclick="changeview('home','forwards')"
         >
           <i id="forwardicon" class="fa fa-arrow-right fa-3x"></i>
