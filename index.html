@@ -25,6 +25,7 @@
 
         .screenlayout{
             display: flex;
+            flex-direction: column;
             width: 100%;
             height: 100%;
         }
@@ -63,91 +64,164 @@
             visibility: visible;
         }
 
+        .displayimg{
+            margin-top: auto;
+            margin-bottom:auto;
+        }
+
+        .middleframe{
+            margin-left:auto;
+            margin-right:auto;
+            margin-bottom: 10%; 
+            font-size: 72px;
+        }
+
+        #menuwrapper{
+            display:flex; 
+            width:72px; 
+            height:72px; 
+            margin-bottom: 10px;
+            background-image: url(cube2.gif); 
+            background-size: 72px; 
+            align-items: center; 
+            justify-content: center; 
+            font-size: 48px;
+        }
+
+        .listitem{
+            font-size: 24px; 
+            align-self: center; 
+            cursor: pointer;
+        }
+
         body{
             margin: 0;
             background-color: black;
             color: white;
             font-family: 'Courier', Courier, monospace;
         }
+
+        @media (max-width:1400px){
+            .leftcolumn {
+                font-size: 32px;
+                margin-left: 5%;
+            }
+
+            .rightcolumn {
+                font-size: 32px;
+                margin-right: 5%;
+            }
+
+            #menuwrapper{
+                width: 48px;
+                height: 48px;
+                background-size: 48px;
+            }
+
+            .displayimg{
+                margin-top: 30%;
+                width:50vw;
+            }
+            
+            #displaytext{
+                margin-top: 10%;
+                font-size: 14px;
+            }
+
+            .middleframe{
+                font-size: 32px;
+                align-self: flex-end;
+            }
+
+            .listitem{
+                font-size:14px;
+            }
+        }
+
     </style>
   </head>
 
   <body>
     <div class="fullscreen">
         <div class="screenlayout">
-            <div class="leftcolumn">
-                <div style="display:flex; width:72px; height:72px; margin-bottom: 10px; background-image: url(cube2.gif); background-size: 72px; align-items: center; justify-content: center; font-size: 48px;">
-                    <i id="menu" class="fa fa-bars" style="position:relative; z-index:3; cursor: pointer;" onclick="expandmenu()">
+            <div style="display:flex;">
+                <div class="leftcolumn">
+                    <div id="menuwrapper">
+                        <i id="menu" class="fa fa-bars" style="position:relative; z-index:3; cursor: pointer;" onclick="expandmenu()">
 
-                    </i>
-                </div>
+                        </i>
+                    </div>
                 <div style="display:flex;">
                     <div>m</div>
-                    <div id="about-me" class="hidden" style="font-size: 24px; align-self: center; cursor: pointer;" onclick="aboutme()">&nbspabout&nbspme</div>
+                    <div id="about-me" class="listitem hidden" onclick="aboutme()">&nbspabout&nbspme</div>
                 </div>
                 <div style="display:flex">
                     <div>m</div>
-                    <div id="resume" class="hidden" style="font-size: 24px; align-self: center; cursor: pointer;" onclick="resume()">&nbspresume</div>
+                    <div id="resume" class="listitem hidden" onclick="resume()">&nbspresume</div>
                 </div>
                 <div style="display:flex">
                     <div>m</div>
-                    <div id="linkedin" class="hidden" style="font-size: 24px; align-self: center;"><a style="text-decoration: none; color:white;" href="https://www.linkedin.com/in/aidanshirey/">&nbsplinkedin</a></div>
+                    <div id="linkedin" class="listitem hidden"><a style="text-decoration: none; color:white;" href="https://www.linkedin.com/in/aidanshirey/">&nbsplinkedin</a></div>
                 </div>
                 <div style="display:flex">
                     <div>m</div>
-                    <div id="github" class="hidden" style="font-size: 24px; align-self: center;"><a style="text-decoration: none; color:white;" href="https://github.com/AidanShirey">&nbspgithub</a></div>
+                    <div id="github" class="listitem hidden"><a style="text-decoration: none; color:white;" href="https://github.com/AidanShirey">&nbspgithub</a></div>
                 </div>
                 <div style="display:flex">
                     <div>m</div>
-                    <div id="fly" class="hidden" style="font-size: 24px; align-self: center;"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/fly/">&nbspfly</a></div>
+                    <div id="fly" class="listitem hidden"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/fly/">&nbspfly</a></div>
                 </div>
                 <div style="display:flex">
                     <div>m</div>
-                    <div id="drumpad" class="hidden" style="font-size: 24px; align-self: center;"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/DrumPad/">&nbspdrumpad</a></div>
+                    <div id="drumpad" class="listitem hidden"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/DrumPad/">&nbspdrumpad</a></div>
                 </div>
                 <div>l</div>
             </div>
             <div class="middlecolumn">
-                <img id="displayimage" style="margin-top:auto; margin-bottom: auto;"src="cube2.gif"></img>
+                <img id="displayimage" class="displayimg" src="cube2.gif"></img>
                 <div id="displaytext" style="margin-bottom: auto;">masters live amongst the people.</div>
-                <div style="margin-bottom: 10%; font-size: 72px;">
-                    lmmmmmmmmpHqmmmmmmmml
-                </div>
             </div>
             <div class="rightcolumn">
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>l</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>m</div>
                 </div>
                 <div style="display:flex;">
-                    <div class="hidden" style="font-size: 24px; align-self: center;" >&nbspabout&nbspme</div>    
+                    <div class="listitem hidden">&nbspabout&nbspme</div>    
                     <div>l</div>
                 </div>
             </div>
+            
+        </div>
+        <div style="display:flex; width:100%; height:100%; align-items:flex-end; justify-content: center;">
+        <div class="middleframe">
+            lmmmmmmmmpHqmmmmmmmml
+        </div>
+        </div>
         </div>
     </div>
   </body>
@@ -159,22 +233,22 @@
   <script>
       function expandmenu(){
         document.getElementById("menu").setAttribute("onclick", "closemenu()");
-        document.getElementById("about-me").setAttribute("class","reveal");
-        document.getElementById("resume").setAttribute("class","reveal");
-        document.getElementById("linkedin").setAttribute("class","reveal");
-        document.getElementById("github").setAttribute("class","reveal");
-        document.getElementById("fly").setAttribute("class","reveal");
-        document.getElementById("drumpad").setAttribute("class","reveal");
+        document.getElementById("about-me").setAttribute("class","listitem reveal");
+        document.getElementById("resume").setAttribute("class","listitem reveal");
+        document.getElementById("linkedin").setAttribute("class","listitem reveal");
+        document.getElementById("github").setAttribute("class","listitem reveal");
+        document.getElementById("fly").setAttribute("class","listitem reveal");
+        document.getElementById("drumpad").setAttribute("class","listitem reveal");
       }
 
       function closemenu(){
         document.getElementById("menu").setAttribute("onclick", "expandmenu()");
-        document.getElementById("about-me").setAttribute("class","hidden");
-        document.getElementById("resume").setAttribute("class","hidden");
-        document.getElementById("linkedin").setAttribute("class","hidden");
-        document.getElementById("github").setAttribute("class","hidden");
-        document.getElementById("fly").setAttribute("class","hidden");
-        document.getElementById("drumpad").setAttribute("class","hidden");
+        document.getElementById("about-me").setAttribute("class","listitem hidden");
+        document.getElementById("resume").setAttribute("class","listitem hidden");
+        document.getElementById("linkedin").setAttribute("class","listitem hidden");
+        document.getElementById("github").setAttribute("class","listitem hidden");
+        document.getElementById("fly").setAttribute("class","listitem hidden");
+        document.getElementById("drumpad").setAttribute("class","listitem hidden");
       }
 
       function aboutme(){
