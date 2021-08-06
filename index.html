@@ -114,16 +114,22 @@
         @media (max-width:600px){
             .leftcolumn {
                 width: 0%;
+                height: 0%;
                 font-size: 32px;
-                margin-left: 0px;
+                margin: 0px;
                 visibility: hidden;
             }
 
             .rightcolumn {
                 width: 0%;
+                height:0%;
                 font-size: 32px;
-                margin-right: 0px;
+                margin: 0px;
                 visibility: hidden;
+            }
+
+            .middlecolumn{
+                height:100%;
             }
 
             #menuwrapper{
@@ -163,7 +169,7 @@
 
             #mobilemenu{
                 width:100%;
-                height:100%;
+                height:50%;
                 margin-top: auto;
                 display:flex;
             }
@@ -174,8 +180,7 @@
 
   <body>
     <div class="fullscreen">
-        <div class="screenlayout">
-            <div style="display:flex;">
+            <div class="screenlayout">
                 <div class="leftcolumn">
                     <div id="menuwrapper">
                         <i id="menu" class="fa fa-bars" style="position:relative; z-index:3; cursor: pointer;" onclick="expandmenu()">
@@ -246,25 +251,23 @@
                     <div>l</div>
                 </div>
             </div>
-            
-        </div>
-        <div style="display:flex; flex-direction:column; width:100%; height:100%; align-items:flex-end; justify-content: center;">
-            <div id="mobilemenu">
-                <div id="mobilemenuleftside" style="display:flex; flex-direction: column; margin-left: auto;">
-                    <div class="listitem" onclick="aboutme()">about me</div>
-                    <div class="listitem" onclick="resume()">resume</div>
-                    <div class="listitem"><a style="text-decoration: none; color:white;" href="https://www.linkedin.com/in/aidanshirey/">linkedin</a></div>
+            <div style="display:flex; flex-direction:column; width:100%; height:100%; align-items:flex-end; justify-content: center;">
+                <div id="mobilemenu">
+                    <div id="mobilemenuleftside" style="display:flex; flex-direction: column; margin-left: auto;">
+                        <div class="listitem" onclick="aboutme()">about me</div>
+                        <div class="listitem" onclick="resume()">resume</div>
+                        <div class="listitem"><a style="text-decoration: none; color:white;" href="https://www.linkedin.com/in/aidanshirey/">linkedin</a></div>
+                    </div>
+                    <div id="menuwrapper" style="margin-right:auto; margin-left:auto;"></div>
+                    <div id="mobilemenurightside" style="display:flex; flex-direction: column; margin-right: auto;">
+                        <div class="listitem"><a style="text-decoration: none; color:white;" href="https://github.com/AidanShirey">github</a></div>
+                        <div class="listitem"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/fly/">fly</a></div>
+                        <div class="listitem"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/DrumPad/">drumpad</a></div>
+                    </div>
                 </div>
-                <div id="menuwrapper" style="margin-right:auto; margin-left:auto;"></div>
-                <div id="mobilemenurightside" style="display:flex; flex-direction: column; margin-right: auto;">
-                    <div class="listitem"><a style="text-decoration: none; color:white;" href="https://github.com/AidanShirey">github</a></div>
-                    <div class="listitem"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/fly/">fly</a></div>
-                    <div class="listitem"><a style="text-decoration: none; color:white;" href="https://aidanshirey.github.io/DrumPad/">drumpad</a></div>
+                <div class="middleframe">
                 </div>
             </div>
-            <div class="middleframe">
-            </div>
-        </div>
         </div>
     </div>
   </body>
