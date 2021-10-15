@@ -27,9 +27,7 @@
         }
 
         .collapse{
-            width: 0px;
-            height: 0px;
-            visibility: hidden;
+            display: none;
         }
 
         .gif-container {
@@ -111,6 +109,38 @@
             height: 100%;
         }
 
+        .expand {
+            animation-name: expand;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        .minimize {
+            animation-name: minimize;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+        }
+
+        @keyframes expand {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes minimize {
+            100% {
+                opacity: 1;
+            }
+
+            0% {
+                opacity: 0;
+            }
+        }
+
         .back-button-area{
             display: flex;
             width: 100%;
@@ -136,7 +166,6 @@
             display: flex;
             width: 100%;
             justify-content: center;
-            align-items: center;
             margin-top: auto;
             margin-bottom: auto;
         }
@@ -207,6 +236,134 @@
             color:white;
             margin: 0;
         }
+
+        .column {
+            display: flex;
+            margin-left:auto; 
+            margin-right: auto;
+        }
+
+        .resume-content {
+            display: flex; 
+            width: 50%; 
+            align-items: center; 
+            flex-direction: column; 
+            margin-left:auto; 
+            margin-right:auto;
+        }
+
+        .aboutme-content {
+            width: 100%;
+            padding: 0 400px;
+            font-size: 24px;
+        }
+
+        @media(max-width: 1440px){
+            .aboutme-content {
+                padding: 0 325px;
+            }
+        }
+
+        @media(max-width: 1024px){
+            .column{
+                width: 292px;
+            }
+
+            .aboutme-content {
+                padding: 0 125px;
+            }
+        }
+
+        @media(max-width: 768px){
+            #about-me:after {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 72px;
+                content: "about me";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+            }
+
+            #resume:after {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 72px;
+                content: "resume";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+            }
+
+            #fly:after {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color:white;
+                font-size: 72px;
+                content: "fly";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+            }
+
+            #drumpad:after {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color:white;
+                font-size: 72px;
+                content: "drumpad";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                left: 0;
+            }
+
+            .column{
+                display: none;
+            }
+
+            .resume-content {
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .aboutme-content {
+                padding: 0 20px;
+            }
+
+            .fullscreen {
+                overflow-y: scroll;
+            }
+
+            .flex-container-gif-row {
+                flex-direction: column;
+                height: 100%;
+            }
+
+            .gif-container {
+                width: 100%;
+            }
+
+            #aboutme-pic{
+                width: 100%;
+                padding: 0 20px;
+            }
+        }
     </style>
 </head>
 
@@ -240,10 +397,10 @@
             </div>
 
             <div class="screencontent">
-                <div style="display:flex; flex-direction: column; align-items: center; ">
-                    <img src="table.png">
+                <div style="display:flex; width:100%; flex-direction: column; align-items: center; ">
+                    <img id="aboutme-pic" src="table.png">
                     </img>
-                    <div style="padding-left: 400px; padding-right: 400px; font-size: 24px;">
+                    <div class="aboutme-content">
                         my name is aidan shirey, i am a front-end web developer, ui designer, and 3d modeler. i currently live in los angeles, california. feel free to connect with me on linkedin or send me an email at aidan.shirey@gmail.com.
                     </div>
                 </div>
@@ -270,11 +427,11 @@
             </div>
 
             <div id="resume-screen" class="screencontent">
-                <div style="display: flex; margin-left:auto; margin-right: auto;margin-top:300px;">
+                <div class="column">
                     <img src="columnleft.png"></img>
                 </div>
-                <div style="display: flex; width: 50%; align-items: center; flex-direction: column; margin-left:auto; margin-right:auto;">
-                    <div style="margin-top:200px; text-align:center; font-size: 24px;"> Aidan Shirey <br/> Frontend Web Developer</div>
+                <div class="resume-content">
+                    <div style="text-align:center; font-size: 24px;"> Aidan Shirey <br/> Frontend Web Developer</div>
 
                     <div id="workexperience">
                         <h2>Work Experience</h2>
@@ -360,8 +517,8 @@
 
 
                 </div>
-                <div style="display: flex; margin-left:auto; margin-right: auto; margin-top:300px;">
-                    <img src="columnright.png"></img>
+                <div class="column">
+                    <img style="margin-left:auto;" src="columnright.png"></img>
                 </div>
                 
             </div>
@@ -386,24 +543,26 @@
         function aboutme(){
             document.getElementById("row1").setAttribute("class","flex-container-gif-row collapse");
             document.getElementById("row2").setAttribute("class","flex-container-gif-row collapse");
-            document.getElementById("aboutmescreen").setAttribute("class","expand-screen");
+            document.getElementById("aboutmescreen").setAttribute("class","expand-screen expand");
         }
 
         function aboutmeback(){
-            document.getElementById("row1").setAttribute("class","flex-container-gif-row");
-            document.getElementById("row2").setAttribute("class","flex-container-gif-row");
-            document.getElementById("aboutmescreen").setAttribute("class","collapse");
+            document.getElementById("aboutmescreen").setAttribute("class","expand-screen minimize");
+            document.getElementById("row1").setAttribute("class","flex-container-gif-row expand");
+            document.getElementById("row2").setAttribute("class","flex-container-gif-row expand");
+            document.getElementById("aboutmescreen").setAttribute("class", "collapse");
         }
 
         function resume(){
             document.getElementById("row1").setAttribute("class","flex-container-gif-row collapse");
             document.getElementById("row2").setAttribute("class","flex-container-gif-row collapse");
-            document.getElementById("resumescreen").setAttribute("class","expand-screen");
+            document.getElementById("resumescreen").setAttribute("class","expand-screen expand");
         }
 
         function resumeback(){
-            document.getElementById("row1").setAttribute("class","flex-container-gif-row");
-            document.getElementById("row2").setAttribute("class","flex-container-gif-row");
+            document.getElementById("resumescreen").setAttribute("class","expand-screen minimize");
+            document.getElementById("row1").setAttribute("class","flex-container-gif-row expand");
+            document.getElementById("row2").setAttribute("class","flex-container-gif-row expand");
             document.getElementById("resumescreen").setAttribute("class","collapse");
         }
     </script>
