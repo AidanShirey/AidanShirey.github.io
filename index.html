@@ -275,6 +275,22 @@
         }
 
         @media(max-width: 768px){
+            #about-me-image {
+                width:100%;
+            }
+
+            #resume-image{
+                width:100%;
+            }
+
+            #drumpad-image{
+                width:100%;
+            }
+
+            #fly-image{
+                width:100%;
+            }
+
             #about-me:after {
                 display: flex;
                 justify-content: center;
@@ -371,18 +387,18 @@
     <div class="fullscreen">
         <div id="row1" class="flex-container-gif-row">
             <div id="about-me" class="gif-container" tabindex=1 onclick="aboutme()">
-                <img src="portrait.gif"></img>
+                <img id="about-me-image" src="portrait.gif"></img>
             </div>
             <div id="resume" class="gif-container" tabindex=1 onclick="resume()">
-                <img src="file.gif"></img>
+                <img id="resume-image" src="file.gif"></img>
             </div>
         </div>
         <div id="row2" class="flex-container-gif-row">
             <a id="drumpad" class="gif-container" href="https://aidanshirey.github.io/DrumPad/">
-                <img src="drumpad2.gif"></img>
+                <img id="drumpad-image" src="drumpad2.gif"></img>
             </a>
             <a id="fly" class="gif-container" href="https://aidanshirey.github.io/fly/">
-                <img src="fly.gif"></img>
+                <img id="fly-image" src="fly.gif"></img>
             </a>
         </div>
         <div id="aboutmescreen" class="collapse">
