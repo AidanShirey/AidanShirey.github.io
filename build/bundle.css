@@ -44,4 +44,11 @@ body{margin:0}#nameandtitle.svelte-1do4v9k{display:flex;flex-direction:column;wi
   background-repeat: no-repeat;
   background-image: url("/drumpad2.gif");
 }
+
+.htmlcapture {
+  background-image: url("/resume.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .grid.svelte-dvr74o{display:grid;grid-template-columns:auto auto}.overlay.svelte-dvr74o{display:flex;justify-content:center;text-decoration:none;align-items:center;width:100%;color:whitesmoke;height:100%;position:absolute;cursor:pointer;z-index:2;top:0;left:0;background:rgba(51, 51, 51, 0.3)}@media(max-width: 768px){.grid.svelte-dvr74o{grid-template-columns:auto}.overlay.svelte-dvr74o{background:rgba(51, 51, 51, 0)}}.gifcontainer.svelte-3rbgcl{width:100%;height:500px;position:relative;z-index:1;display:flex;background-color:black;color:whitesmoke;font-size:3rem;justify-content:center;align-items:center}.mobileoverlay.svelte-3rbgcl{display:none;justify-content:center;text-decoration:none;align-items:center;width:100%;color:whitesmoke;height:100%;position:absolute;cursor:pointer;z-index:2;top:0;left:0;background:rgba(51, 51, 51, 0.0)}@media(max-width: 768px){.mobileoverlay.svelte-3rbgcl{display:flex}}
